@@ -68,10 +68,10 @@ const LobbyScreen = () => {
         {/* Main Card */}
         <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/30 overflow-hidden hover:shadow-3xl transition-all duration-500 hover:bg-white/80">
           {/* Card Header */}
-          <div className="px-8 pt-8 pb-6 text-center border-b border-gray-100/50">
+          <div className="px-8 pt-8 pb-1 text-center border-b border-gray-100/50">
             <div className="inline-flex items-center gap-3 mb-3">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              <h2 className="text-2xl font-bold text-gray-900">Room Lobby</h2>
+              <h2 className="text-2xl font-bold text-gray-900">Login</h2>
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
             </div>
             <p className="text-gray-600 font-medium">Enter your details to get started</p>
@@ -82,9 +82,9 @@ const LobbyScreen = () => {
             <form onSubmit={handleSubmitForm} className="space-y-6">
               {/* Name Input */}
               <div className="space-y-3">
-                <label htmlFor="name" className="block text-sm font-semibold text-gray-800 uppercase tracking-wide">
+                {/* <label htmlFor="name" className="block text-sm font-semibold text-gray-800 uppercase tracking-wide">
                   Full Name
-                </label>
+                </label> */}
                 <div className="relative group">
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                     <svg
@@ -115,9 +115,9 @@ const LobbyScreen = () => {
 
               {/* Email Input */}
               <div className="space-y-3">
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-800 uppercase tracking-wide">
+                {/* <label htmlFor="email" className="block text-sm font-semibold text-gray-800 uppercase tracking-wide">
                   Email Address
-                </label>
+                </label> */}
                 <div className="relative group">
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                     <svg
@@ -148,9 +148,9 @@ const LobbyScreen = () => {
 
               {/* Room Input */}
               <div className="space-y-3">
-                <label htmlFor="room" className="block text-sm font-semibold text-gray-800 uppercase tracking-wide">
+                {/* <label htmlFor="room" className="block text-sm font-semibold text-gray-800 uppercase tracking-wide">
                   Room Code
-                </label>
+                </label> */}
                 <div className="relative group">
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                     <svg

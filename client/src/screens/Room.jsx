@@ -4,9 +4,11 @@ import { useEffect, useCallback, useState } from "react"
 import ReactPlayer from "react-player"
 import peer from "../service/peer"
 import { useSocket } from "../context/SocketProvider"
+import { useNavigate } from "react-router-dom"
 
 const RoomPage = () => {
   const { socket, myname } = useSocket()
+  const navigate = useNavigate()
   const [remoteSocketId, setRemoteSocketId] = useState(null)                        // other user's socket ID
   const [myStream, setMyStream] = useState()
   const [remoteStream, setRemoteStream] = useState()
@@ -49,6 +51,10 @@ const RoomPage = () => {
   setRemoteSocketId(null);
   setRemoteName("");
 }, [myStream, remoteStream]);
+
+  const handleLogout = () => {
+  navigate("/"); // Navigate to home page
+  };
 
 
   const handleIncommingCall = useCallback(                                         // 3 step on kushal side 
@@ -169,7 +175,7 @@ const RoomPage = () => {
         {/* Controls Section */}
         <div className="mb-8">
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-white/20 p-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">Controls</h2>
+            {/* <h2 className="text-2xl font-bold text-gray-800 mb-6">Controls</h2> */}
             <div className="flex flex-wrap gap-4">
               {myStream && (
                 <button
@@ -197,6 +203,18 @@ const RoomPage = () => {
     <span className="relative z-10">End Call</span>
     <div className="absolute inset-0 bg-gradient-to-r from-red-400 to-red-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
   </button>
+)}
+{/* Logout button - only show when no one is connected */}
+{!remoteSocketId && (
+  <div className="w-full flex justify-center">
+    <button
+      onClick={handleLogout}
+      className="group relative bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 active:translate-y-0"
+    >
+      <span className="relative z-10">Logout</span>
+      <div className="absolute inset-0 bg-gradient-to-r from-red-400 to-red-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
+    </button>
+  </div>
 )}
 
             </div>
